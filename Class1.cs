@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using HarmonyLib;
 using BepInEx;
@@ -33,19 +33,19 @@ namespace Beacons
                 if (!PhotonNetwork.CurrentRoom.IsVisible || !PhotonNetwork.InRoom)
                 {
                             VRRig[] vrRigs = (VRRig[])GameObject.FindObjectsOfType(typeof(VRRig));
-                            foreach (VRRig rig in vrRigs)
+                            foreach (VRRig riggggg in vrRigs)
                             {
-                                if (!rig.isOfflineVRRig && !rig.isMyPlayer && !rig.photonView.IsMine)
+                                if (!riggggg.isOfflineVRRig && !riggggg.isMyPlayer && !riggggg.photonView.IsMine)
                                 {
-                                    GameObject beacon = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-                                    GameObject.Destroy(beacon.GetComponent<BoxCollider>());
-                                    GameObject.Destroy(beacon.GetComponent<Rigidbody>());
-                                    GameObject.Destroy(beacon.GetComponent<Collider>());
-                                    beacon.transform.rotation = Quaternion.identity;
-                                    beacon.transform.localScale = new Vector3(0.002f, 200f, 0.02f);
-                                    beacon.transform.position = rig.transform.position;
-                                    beacon.GetComponent<MeshRenderer>().material = rig.mainSkin.material;
-                                    GameObject.Destroy(beacon, Time.deltaTime);
+                                    GameObject broitsmybeacon = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                                    GameObject.Destroy(broitsmybeacon.GetComponent<BoxCollider>());
+                                    GameObject.Destroy(broitsmybeacon.GetComponent<Rigidbody>());
+                                    GameObject.Destroy(broitsmybeacon.GetComponent<Collider>());
+                                    broitsmybeacon.transform.rotation = Quaternion.identity;
+                                    broitsmybeacon.transform.localScale = new Vector3(0.002f, 200f, 0.02f);
+                                    broitsmybeacon.transform.position = riggggg.transform.position;
+                                    broitsmybeacon.GetComponent<MeshRenderer>().material = riggggg.mainSkin.material;
+                                    GameObject.Destroy(broitsmybeacon, Time.deltaTime);
                                 }
                             }
                         }
